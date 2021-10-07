@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Styles from './Players.styles'
 import PropTypes from 'prop-types';
+import Button from '../Button/Button';
 
 const SectionTeam = styled.section`${Styles.sectionTeam}`
 
@@ -15,19 +16,23 @@ const ImagePlayer = styled.img`${Styles.imagePlayer}`
 
 const PlayerName = styled.h3`${Styles.playerName}`
 
+const ActionButtons = styled.div`${Styles.actionButtons}`
+
+const Title = styled.h2`${Styles.title}`
+
 const Players = ({ players }) => (
     <SectionTeam>
-        <h2>Team Players</h2>
+        <Title>Galaxy FC</Title>
         <ContainerPlayers>
             {
                 players.map((player, index) => (
                     <CardPlayer key={index}>
                         <ImagePlayer src={player.photo} alt={player.name} />
                         <PlayerName>{player.name}</PlayerName>
-                        <div>
-                            <button>Headlines</button>
-                            <button>Substitutes</button>
-                        </div>
+                        <ActionButtons>
+                            <Button isHeadlines/>
+                            <Button />
+                        </ActionButtons>
                     </CardPlayer>
                 ))
             }
@@ -43,6 +48,6 @@ const mapStateToProps = state => ({
     players: state.players,
 })
 
-const mapDispatchToProps = dispatch => ({})
+//const mapDispatchToProps = dispatch => ({})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Players);
+export default connect(mapStateToProps, {})(Players);

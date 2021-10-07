@@ -77,7 +77,7 @@ const initialState = {
     substitutes: []
 }
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState) => {
     return state;
 }
 
